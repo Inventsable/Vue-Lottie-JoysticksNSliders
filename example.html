@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link href="./reset.css" type="text/css" rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.4.2/lottie.min.js"></script> -->
+    <script src="lottie.js" type="text/javascript"></script>
+    <script src="./lottie_api.js" type="text/javascript"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <title>Lottie-Simple</title>
+</head>
+
+<body>
+    <div id="app">
+        <sandbox />
+    </div>
+
+    <script type="text/javascript">
+        window.Event = new Vue();
+
+        Vue.component('sandbox', {
+            template: `
+                <site>
+                    <card>
+                        <lottie-simple classname="bmv-simple" file="logo" />
+                    </card>
+                </site>
+            `,
+        });
+
+        // Slotted components to make above human-readable
+        Vue.component('site', { template: `<div class="site-wrap"><slot /></div>` })
+        Vue.component('card', { template: `<div class="content-body"><slot /></div>` })
+
+        Vue.component('lottie-simple', {
+            props: {
+                classname: String,
+                file: String,
+            },
+            template: `<div :class="classname"></div>`,
+            data() {
+                return {
+                    animData: {},
+                }
+            },
+            mounted() {
+                this.animData = this.buildAnimation();
+            },
+            methods: {
+                buildAnimation() {
+                    const elt = this.$el;
+                    const animData = {
+                        wrapper: elt,
+                        animType: 'svg',
+                        loop: true,
+                        prerender: true,
+                        autoplay: true,
+                        path: `./${this.file}.json`,
+                    };
+                    return lottie.loadAnimation(animData);
+                },
+            }
+        })
+
+        
+        var app = new Vue({
+            el: '#app',
+            mounted() {
+                console.log('Root mounted')
+            },
+        })
+    </script>
+</body>
+</html>
