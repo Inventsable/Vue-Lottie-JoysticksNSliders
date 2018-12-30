@@ -1,5 +1,9 @@
 # Use Lottie and Joysticks N' Sliders with Vue.js
 
+## [Click here for a live demo](www.willthis.work)
+
+---
+
 ## See [example.html](https://github.com/Inventsable/Vue-Lottie-JoysticksNSliders/blob/master/example.html):
 
 `<lottie-simple>` component accepts `classname` and `file` attributes, then initializes and runs itself in a single line of code:

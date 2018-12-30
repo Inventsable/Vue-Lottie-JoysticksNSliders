@@ -197,4 +197,12 @@ span {
     opacity: .5;
 }
 
+@media screen 
+    and (orientation: landscape)
+    and (max-width:760px) {
 
+        .joystick-anno {
+            height: 5rem;
+            align-items: center;
+        }
+    }
