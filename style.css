@@ -204,10 +204,12 @@ span {
         .joystick-anno {
             height: 5rem;
             align-items: center;
-            border: 2px solid red;
+        }
+        .anno-neutral {
+            font-size: 1.5rem;
         }
 
-        .content-body {
-            height: 90vh;
+        .anno-coords {
+            font-size: 1rem;
         }
     }
