@@ -1,6 +1,6 @@
 # Use Lottie and Joysticks N' Sliders with Vue.js
 
-## [Click here for a live demo](www.willthis.work)
+## [Click here for a live demo](https://www.willthis.work)
 
 ---
 
