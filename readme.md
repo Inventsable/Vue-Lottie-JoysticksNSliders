@@ -1,8 +1,6 @@
-# Use Lottie and Joysticks and Sliders with Vue.js
+# Use Lottie and Joysticks N' Sliders with Vue.js
 
-
-
-## See `example.html`:
+## See [example.html](https://github.com/Inventsable/Vue-Lottie-JoysticksNSliders/blob/master/example.html):
 
 `<lottie-simple>` component accepts `classname` and `file` attributes, then initializes and runs itself in a single line of code:
 
@@ -23,7 +21,7 @@ Vue.component('example', {
 
 ---
 
-## See `index.html`:
+## See [index.html](https://github.com/Inventsable/Vue-Lottie-JoysticksNSliders/blob/master/index.html) and [main.js](https://github.com/Inventsable/Vue-Lottie-JoysticksNSliders/blob/master/main.js):
 
 `<joystick>` and `<lottie>` components create an HTML Joystick that performs identically to a [Joysticks N' Sliders](https://aescripts.com/joysticks-n-sliders/) layer inside After Effects:
 
@@ -78,6 +76,7 @@ Vue.component('example', {
 
 ## `<joystick>` updates
 
+* Major revamp -- do all the upgrades you've wanted to see in the After Effects extension (...sorry Mike, but it could be so much better)
 * Add bumper controls to push Joystick to each pose
 * Add keyframe visualizers
 * Add cycling arrows to move Joystick in sequence
