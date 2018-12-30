@@ -204,5 +204,6 @@ span {
         .joystick-anno {
             height: 5rem;
             align-items: center;
+            border: 2px solid red;
         }
     }
