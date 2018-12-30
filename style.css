@@ -206,4 +206,8 @@ span {
             align-items: center;
             border: 2px solid red;
         }
+
+        .content-body {
+            height: 90vh;
+        }
     }
