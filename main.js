@@ -10,20 +10,19 @@ Vue.component('sandbox', {
       </card>
       <card>
         <joystick
-          name="ballBounce"
+          name="tell"
           :bounds="adjustBounds(300)" 
           :controller="adjustBounds(50)" 
           :color="'#2b3137'" 
           :border="'#24292e'"
         />
         <div class="card-preview">
-          <lottie :width="400" :height="125" file="ball" :hasJoystick="false" />
           <lottie 
             classname="lottie-container"
-            :width="400" :height="125" 
-            file="ball" 
-            joystick="ballBounce"
-            layer="joystick"
+            :width="checkDim()" :height="checkDim()" 
+            file="omo" 
+            joystick="tell"
+            layer="masterJoy"
           />
         </div>
       </card>
@@ -42,6 +41,23 @@ Vue.component('sandbox', {
       } else {
         return num;
       }
+    },
+    checkDim() {
+      let dim = 400;
+      if (this.$root.isMobile) {
+        if (this.$root.isPortrait) {
+          dim = 800;
+          console.log('Caught it')
+          // style += ``
+        } else {
+          dim = 400;
+          // style += 
+        }
+      } else {
+        dim = 400;
+        // style += 
+      }
+      return dim;  
     }
   }
 })
@@ -60,9 +76,10 @@ Vue.component('card', {
       let style = ``
       if (this.$root.isMobile) {
         if (this.$root.isPortrait) {
-          style += `display:flex;flex-direction:column;`
+          style += `display:flex;flex-direction:column;align-items:center;`
         } else {
-          style += `display: grid;grid-template-columns: 1fr 1fr;grid-template-rows: 0fr 0fr`
+          style += `display:flex;justify-content:space-around;flex-direction:row;align-items:baseline;`
+          // style += `display: grid;grid-template-columns: 1fr 1fr;grid-template-rows: 0fr 0fr`
         }
       } else {
         style += `display: grid;grid-template-columns: 1fr 1fr;grid-template-rows: 0fr 0fr`
@@ -116,7 +133,7 @@ Vue.component('lottie', {
     classname: String,
   },
   template: `
-    <div :class="classname"></div>
+    <div :class="classname" :style="getLottieStyle()"></div>
   `,
   data() {
     return {
@@ -143,6 +160,20 @@ Vue.component('lottie', {
     }
   },
   methods: {
+    getLottieStyle() {
+      console.log(`${this.$root.isMobile} : ${this.$root.isLandscape} : ${this.$root.isPortrait}`)
+      let style = ``
+      if (this.$root.isMobile) {
+        if (this.$root.isPortrait) {
+          style += `margin-bottom:5rem;width:100%;`
+        } else {
+          // style += 
+        }
+      } else {
+        // style += 
+      }
+      return style;    
+    },
     setJoystick(msg) {
       let coords = msg.split(';');
       this.joyX = Number(coords[0]), this.joyY = Number(coords[1]);
@@ -152,6 +183,7 @@ Vue.component('lottie', {
         const self = this;
         this.animAPI = lottie_api.createAnimationApi(this.animData);
         this.aePosition = this.animAPI.getKeyPath(`${this.layer},Transform,Position`);
+        console.log(this.animData.frames);
         this.animAPI.addValueCallback(self.aePosition, function(currentValue) {
           return [self.joyX, self.joyY];
         });

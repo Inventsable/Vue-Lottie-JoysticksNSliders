@@ -53,6 +53,15 @@ span {
     width: 5rem;
 }
 
+.lottie-container {
+    max-width: 400px;
+    max-height: 300px;
+}
+
+svg {
+    width: 100%;
+}
+
 .site-wrap {
     width: 100vw;
     display: flex;
@@ -108,8 +117,8 @@ span {
 
 .card-preview {
     /* padding: 0px 4rem; */
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    /* display: grid;
+    grid-template-rows: 1fr 1fr; */
 }
 
 .content-body {
@@ -200,6 +209,10 @@ span {
 @media screen 
     and (orientation: landscape)
     and (max-width:980px) {
+
+        .joystick-wrap {
+            order: 1;
+        }
 
         .joystick-anno {
             margin-top: .5rem;
