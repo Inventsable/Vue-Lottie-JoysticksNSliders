@@ -20,7 +20,7 @@ Vue.component('sandbox', {
           <lottie 
             classname="lottie-container"
             :width="checkDim()" :height="checkDim()" 
-            file="omo" 
+            file="omo1" 
             joystick="tell"
             layer="masterJoy"
           />
